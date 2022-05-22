@@ -10,7 +10,7 @@ To run our code you have to install one third-party package:
 
 <hr>
 
-### Generate Key:
+<h1 align="center">GENERATE KEY</h1>
 
 __command__ :
 
@@ -134,7 +134,8 @@ python3 pyssl.py -h SHA256 -i plain.txt
 
 <hr>
 
-##  Verify signature:
+<h1 align="center">VERIFY SIGNATURE</h1>
+
 __CREATE SIGNATURE COMMAND__:
 ```shell
 python3 pyssl.py -e create-rsa-signature -i [input file] -s [signature output file] -k [private key file]
