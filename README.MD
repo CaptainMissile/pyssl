@@ -1,37 +1,143 @@
-# Security lab
+<hr>
 
-## To Generate Key
+__Authors__ : M. Ebrahim Sazin (2017331010) , Roman Raihan(2017331088)
 
-The below will generate key 
-__command__ : ```python3 gen_key.py --mode [option] -l [no_of_bits]```<br>
-__example1__ :  ```python3 gen_key.py --mode aes -l 128```<br>
-__example2__ : ```python3 gen_key.py --mode rsa -l 1024```<br>
+<hr>
+
+
+# DOCUMENTATION:
+### Generate Key:
+
+__command__ :
+
+```shell 
+python3 gen_key.py --mode [options] -l [no_of_bits]
+```
+
+> `--mode` can be `aes` or `rsa`<br>
+> `-l` is number of bit length. for aes it can 128 or 256 and for rsa it can be 1024 or 2048<br><br>
+
+__Example 1__ :
+```shell
+python3 gen_key.py --mode aes -l 128
+```
+__Example 2__ :
+```shell
+python3 gen_key.py --mode rsa -l 1024
+```
+<hr>
 
 ## For AES (ECB/CFB 128/256):
-__FOR ENCRYPTION Command__ : ```python3 pyssl.py -e [encryption options] -k [generated key] -v [generated iv] -i [input file] -o [output_file]```<br>
-__FOR DECRYPTION Command__ : ```python3 pyssl.py -d [encryption options] -k [generated key] -v [generated iv] -i [input file] -o [output_file]```<br><br>
-__For encryption example1__ :  ```python3 pyssl.py -e aes-256-cfb -k t7EQ9iArWRM7vq9WUKWJqGSL5ImT5zn3 -v gWCZ0LbzD8ByaKc0 -i plain.txt -o output.txt```<br>
-__For decryption example1__ :  ```python3 pyssl.py -d aes-256-cfb -k t7EQ9iArWRM7vq9WUKWJqGSL5ImT5zn3 -v gWCZ0LbzD8ByaKc0 -i output.txt -o plain_back.txt```<br><br>
+__ENCRYPTION COMMAND__ : 
+```shell
+python3 pyssl.py -e [encryption options] -k [generated key] -v [generated iv] -i [input file] -o [output_file]
+```
 
-__For encrytption example2__ : ```python3 pyssl.py -e aes-128-ecb -k t7EQ9iArWRM7vq9W -i plain.txt -o output.txt```<br>
-__For decrytption example2__ : ```python3 pyssl.py -d aes-128-ecb -k t7EQ9iArWRM7vq9W -i output.txt -o plain_back.txt```<br>
+__FOR DECRYPTION COMMAND__ : 
+```shell
+python3 pyssl.py -d [encryption options] -k [generated key] -v [generated iv] -i [input file] -o [output_file]
+```
+
+<br>
+<br>
+
+__Encryption example 1__ : 
+```shell
+python3 pyssl.py -e aes-256-cfb -k t7EQ9iArWRM7vq9WUKWJqGSL5ImT5zn3 -v gWCZ0LbzD8ByaKc0 -i plain.txt -o output.txt
+```
+
+__Decryption example 1__ : 
+```shell
+python3 pyssl.py -d aes-256-cfb -k t7EQ9iArWRM7vq9WUKWJqGSL5ImT5zn3 -v gWCZ0LbzD8ByaKc0 -i output.txt -o plain_back.txt
+```
+
+<br> <br>
+
+__Encrytption example 2__ :
+```shell
+python3 pyssl.py -e aes-128-ecb -k t7EQ9iArWRM7vq9W -i plain.txt -o output.txt
+```
+
+__Decrytption example2__ :
+```shell
+python3 pyssl.py -d aes-128-ecb -k t7EQ9iArWRM7vq9W -i output.txt -o plain_back.txt
+```
+
+<hr>
 
 ##  For RSA:
-__FOR ENCRYPTION Command__ : ```python3 pyssl.py -e [encryption options] -k [public key file] -i [input file] -o [output_file]```<br>
-__FOR DECRYPTION Command__ : ```python3 pyssl.py -d [encryption options] -k [private key file] -i [input file] -o [output_file]```<br><br>
-__For encryption example1__ :  ```python3 pyssl.py -e rsa -k publicKey.pem -i rsa_plain.txt -o output.txt```<br>
-__For decryption example1__ :  ```python3 pyssl.py -d rsa -k privateKey.pem -i output.txt -o plain_back.txt```<br><br>
+__ENCRYPTION COMMAND__ : 
+```shell
+python3 pyssl.py -e [encryption options] -k [public key file] -i [input file] -o [output_file]
+```
 
-FOR GENERATE KEY:<br>
+__DECRYPTION COMMAND__ :
+```shell
+python3 pyssl.py -d [encryption options] -k [private key file] -i [input file] -o [output_file]
+```
+
+<br><br>
+
+__Encryption example 1__ : 
+```shell
+python3 pyssl.py -e rsa -k publicKey.pem -i rsa_plain.txt -o output.txt
+```
+
+__Decryption example 1__ : 
+```shell
+python3 pyssl.py -d rsa -k privateKey.pem -i output.txt -o plain_back.txt
+```
+
 >`NOTE: python3 gen_key.py --mode rsa -l 1024`. It will create two files. One for public key and another for private key
 
+<hr>
+
 ## For SHA256:
-__TO HASH COMMAND__ : ```python3 pyssl.py -h SHA256 -i [input file]``` <br>
-__example1__ : ```python3 pyssl.py -h SHA256 -i plain.txt```<br> <br>
+__COMMAND__ :
+```shell
+python3 pyssl.py -h SHA256 -i [input file]
+``` 
 
-## For Verify signature:
-__CREATE SIGNATURE COMMAND__: ```python3 pyssl.py -e create-rsa-signature -i [input file] -s [signature output file] -k [private key file]```<br>
-__VERIFY SIGNATURE COMMAND__: ```python3 pyssl.py -e verify-rsa-signature -i [input file] -s [signature output file] -k [public key file]```<br><br>
+__Example 1__ :
+```shell
+python3 pyssl.py -h SHA256 -i plain.txt
+```
 
-__create signature example__ : ```python3 pyssl.py -e create-rsa-signature -i rsa_plain.txt -s signature.txt -k privateKey.pem```<br>
-__verify signature example__ : ```python3 pyssl.py -e create-rsa-signature -i rsa_plain.txt -s signature.txt -k publicKey.pem```
+<hr>
+
+##  Verify signature:
+__CREATE SIGNATURE COMMAND__:
+```shell
+python3 pyssl.py -e create-rsa-signature -i [input file] -s [signature output file] -k [private key file]
+```
+
+__VERIFY SIGNATURE COMMAND__:
+```shell
+python3 pyssl.py -e verify-rsa-signature -i [input file] -s [signature output file] -k [public key file]
+```
+
+<br> 
+
+__create signature example__ :
+```shell
+python3 pyssl.py -e create-rsa-signature -i rsa_plain.txt -s signature.txt -k privateKey.pem
+```
+
+__verify signature example__ :
+```shell
+python3 pyssl.py -e create-rsa-signature -i rsa_plain.txt -s signature.txt -k publicKey.pem
+```
+
+<hr>
+
+## Perfomance Test:
+
+__We performed some performance test in terms of time:__<br>
+
+ECB AND CFB:
+
+![ECB_VS_CFB](cfb_ecb.png)
+
+RSA:
+
+![RSA](RSA.png)
