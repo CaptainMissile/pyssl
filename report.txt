@@ -1,0 +1,71 @@
+HERE OUR MAIN FILE IS : pyssl.py
+FOR GENERATE KEY: gen_key.py
+FOR BETTER DOCUMENTATION : https://github.com/CaptainMissile/pyssl
+
+
+
+KEY GENERATE:
+-------------
+python3 gen_key.py --mode aes -l 128
+
+ENCRYPTION CFB 256:
+-------------------
+python3 pyssl.py -e aes-256-cfb -k t7EQ9iArWRM7vq9WUKWJqGSL5ImT5zn3 -v gWCZ0LbzD8ByaKc0 -i plain.txt -o out_256.txt
+
+
+DECRYPTION CFB 256:
+-------------------
+python3 pyssl.py -d aes-256-cfb -k t7EQ9iArWRM7vq9WUKWJqGSL5ImT5zn3 -v gWCZ0LbzD8ByaKc0 -i out_256.txt -o plain_cfb_256.txt
+
+
+ENCRYPTION ECB 256:
+-------------------
+python3 pyssl.py -e aes-256-ecb -k t7EQ9iArWRM7vq9WUKWJqGSL5ImT5zn3 -i plain.txt -o out_256_ecb.txt
+
+
+DECRYPTION ECB 256:
+-------------------
+python3 pyssl.py -d aes-256-ecb -k t7EQ9iArWRM7vq9WUKWJqGSL5ImT5zn3 -i out_256_ecb.txt -o plain_ecb_256.txt
+
+
+
+ENCRYPTION RSA:
+--------------
+python3 pyssl.py -e rsa -k publicKey.pem -i rsa_plain.txt -o rsa_out.txt
+
+DECRYPTION RSA:
+---------------
+python3 pyssl.py -d rsa -k privateKey.pem -i rsa_out.txt -o rsa_plain_back.txt
+
+
+CREATE-RSA-SIGNATURE:
+---------------------
+python3 pyssl.py -e create-rsa-signature -i rsa_plain.txt -s signature.txt -k privateKey.pem
+
+VERIFY-RSA-SIGNATURE:
+---------------------
+python3 pyssl.py -e verify-rsa-signature -i rsa_plain.txt -s signature.txt -k publicKey.pem
+
+
+SHA256 HASH:
+------------
+python3 pyssl.py -h SHA256 -i plain.txt
+
+
+cfb:
+n = [16,64,96,128,256]
+[0.0025207996368408203, 0.002365589141845703, 0.001989603042602539, 0.0015017986297607422, 0.0016164779663085938]
+
+ecb:
+n = [16,64,96,128,256]
+[0.0006618499755859375, 0.0032227039337158203, 0.0022106170654296875, 0.0028007030487060547, 0.0025501251220703125]
+
+rsa:
+n = [1024,1536,2048,2560,3072]
+[0.6984107494354248, 0.8505840301513672, 0.6387746334075928, 2.1576459407806396, 2.4252915382385254]
+
+
+SOURCE:
+------
+https://pycryptodome.readthedocs.io/
+https://www.delftstack.com/howto/python/rsa-encryption-python/
