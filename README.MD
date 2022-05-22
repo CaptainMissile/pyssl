@@ -4,6 +4,11 @@
 ### [Baibars Filomatheinista (2017331010) ](https://github.com/bai-bars) <br> [ Abdullah (2017331088) ](https://github.com/raihan88)
 <hr>
 
+## DEPENDENCIES:
+To run our code you have to install one third-party package:
+> `pip install pycryptodome`
+
+<hr>
 
 ### Generate Key:
 
@@ -13,8 +18,8 @@ __command__ :
 python3 gen_key.py --mode [options] -l [no_of_bits]
 ```
 
-> `--mode` can be `aes` or `rsa`<br>
-> `-l` is number of bit length. for aes it can 128 or 256 and for rsa it can be 1024 or 2048<br><br>
+>1. `--mode` can be `aes` or `rsa`<br>
+>2. `-l` is number of bit length. for aes it can 128 or 256 and for rsa it can be 1024 or 2048<br><br>
 
 __Example 1__ :
 ```shell
