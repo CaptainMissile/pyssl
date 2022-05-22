@@ -25,8 +25,33 @@ __Example 2__ :
 ```shell
 python3 gen_key.py --mode rsa -l 1024
 ```
-<hr>
+<h1 align="center">ENCRYPTION DECRYPTION</h1>
 
+__ENCRYPTION COMMAND__ : 
+```shell
+python3 pyssl.py -e [encryption options] -k [generated key] -v [generated iv] -i [input file] -o [output_file]
+```
+
+__DECRYPTION COMMAND__ : 
+```shell
+python3 pyssl.py -d [encryption options] -k [generated key] -v [generated iv] -i [input file] -o [output_file]
+```
+<br><br>
+__options__:
+> 1. `-e` for encryption and `-d` for decryption. These both options take types of encryption.
+> > i.`aes-128-cfb` for 128 bit cfb <br>
+> > ii.`aes-256-cfb` for 256 bit cfb  <br>
+> > iii.`aes-128-ecb` for 128 bit ecb <br>
+> > iv. `aes-256-cfb` for 256 bit ecb <br>
+> > v. i.`rsa` for rsa encryption. Here number of bit depends on the number of bits in the key <br>
+> 2. `-k` for key.
+> > i. Value should be string for aes.<br>
+> > ii. Value should be `.pem` file . Be careful: For encryption use the `public key` and for decryption use `private key`
+> 3. `-v` it will take iv value. No iv for ecb
+> 4. `-i` for input file name
+> 5. `-o` for output file name
+<hr>
+   
 ## For AES (ECB/CFB 128/256):
 __ENCRYPTION COMMAND__ : 
 ```shell
