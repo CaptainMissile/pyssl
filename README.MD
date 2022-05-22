@@ -166,3 +166,7 @@ ECB AND CFB:
 RSA:
 
 ![RSA](RSA.png)
+
+## Credits:
+1. https://pycryptodome.readthedocs.io/
+2. https://www.delftstack.com/howto/python/rsa-encryption-python/
