@@ -1,7 +1,7 @@
 
 # Authors:
 
-### [Baibars Filomatheinista (2017331010) ](https://github.com/bai-bars) <br> [Not A valid Name (2017331088) ](https://github.com/raihan88)
+### [Baibars Filomatheinista (2017331010) ](https://github.com/bai-bars) <br> [ Abdullah (2017331088) ](https://github.com/raihan88)
 <hr>
 
 
