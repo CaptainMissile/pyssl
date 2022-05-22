@@ -1,11 +1,10 @@
+
+# Authors:
+
+### [Baibars Filomatheinista (2017331010) ](https://github.com/bai-bars) <br> [Not A valid Name (2017331088) ](https://github.com/raihan88)
 <hr>
 
-__Authors__ : M. Ebrahim Sazin (2017331010) , Roman Raihan(2017331088)
 
-<hr>
-
-
-# DOCUMENTATION:
 ### Generate Key:
 
 __command__ :
