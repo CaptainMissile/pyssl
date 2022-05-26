@@ -169,11 +169,11 @@ __We performed some performance test in terms of time:__<br>
 
 ECB AND CFB:
 
-![ECB_VS_CFB](cfb_ecb.png)
+![ECB_VS_CFB](/plots/cfb_ecb.png)
 
 RSA:
 
-![RSA](RSA.png)
+![RSA](/plots/RSA.png)
 
 ## Credits:
 1. https://pycryptodome.readthedocs.io/
