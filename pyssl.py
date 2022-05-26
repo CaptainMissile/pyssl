@@ -8,6 +8,8 @@ from Crypto.Signature.pkcs1_15 import PKCS115_SigScheme
 from Crypto.Hash import SHA256
 import binascii
 from Crypto.Signature import pss
+from Crypto import Random
+from Crypto.PublicKey import RSA
 import time
 import random,string
 
@@ -194,27 +196,34 @@ def SHA256_Hash(inp_file):
 
 def main(argv):
     inp_file = "";out_file = "";key = "";iv = "";sign_file=""
-    enc_mode = "";dec_mode = "";hash_mode = ""
+    enc_mode = "";dec_mode = "";hash_mode = "";
+    key_ln = None; gen_key=None; privateKey=None;publicKey=None
 
-    opts, args = getopt.getopt(argv,"k:v:i:o:e:d:p:h:s:")
+    opts, args = getopt.getopt(argv,"g:l:k:v:i:o:e:d:p:h:s:", ["gen_key=","length=",
+                'key=','iv=','input=','output=','enc=','dec=','prun=','hash=','sign='])
 
     for opt, arg in opts:
-        if opt == '-i':
+        if opt in ('-i','--input'):
             inp_file = arg
-        elif opt == '-o':
+        elif opt in ('-o', '--output'):
             out_file = arg
-        elif opt == '-s':
+        elif opt in ('-s', '--sign'):
             sign_file = arg
-        elif opt == '-k':
+        elif opt in ('-k','--key'):
             key = arg
-        elif opt == '-v':
+        elif opt in ('-v','--iv'):
             iv = arg
-        elif opt == '-e':
+        elif opt in ('-e', '--enc'):
             enc_mode = arg
-        elif opt == '-d':
+        elif opt in ('-d', '--dec'):
             dec_mode = arg
-        elif opt == '-h':
+        elif opt in ('-h', '--hash'):
             hash_mode = arg
+        elif opt in ('-l', '--length'):
+            key_ln = int(arg)
+        elif opt in ('-g', '--gen_key'):
+            gen_key = arg
+
 
     if len(enc_mode) > 0:
         if enc_mode.split('-')[0] == 'aes':
@@ -233,6 +242,20 @@ def main(argv):
             rsa_decryption(inp_file, out_file, key)
     elif hash_mode == 'SHA256':
             SHA256_Hash(inp_file)
+    elif gen_key == 'aes':
+        print('key: ', ''.join(random.choices(string.ascii_letters + string.digits, k=(key_ln//8))))
+        print('iv:  ', ''.join(random.choices(string.ascii_letters + string.digits, k=(16))))
+    elif gen_key == 'rsa':        
+        key = RSA.generate(2048)
+        privateKey = key.exportKey('PEM')
+        publicKey = key.publickey().exportKey('PEM')
+
+        with open('publicKey.pem', 'wb') as f:
+            f.write(publicKey)
+
+        with open('privateKey.pem', 'wb') as f:
+            f.write(privateKey)
+    
 
         
 if __name__ == '__main__':
