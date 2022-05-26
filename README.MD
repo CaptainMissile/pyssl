@@ -15,19 +15,22 @@ To run our code you have to install one third-party package:
 __command__ :
 
 ```shell 
-python3 gen_key.py --mode [options] -l [no_of_bits]
+python3 pyssl.py --gen_key [options] -l [no_of_bits]
 ```
 
->1. `--mode` can be `aes` or `rsa`<br>
+>1. `--gen_key` can be `aes` or `rsa`<br>
 >2. `-l` is number of bit length. for aes it can 128 or 256 and for rsa it can be 1024 or 2048<br><br>
 
-__Example 1__ :
+
+__Example 1(AES Key)__ :
+
 ```shell
-python3 gen_key.py --mode aes -l 128
+python3 pyssl.py --gen_key aes -l 128
 ```
-__Example 2__ :
+
+__Example 2(RSA Key)__ :
 ```shell
-python3 gen_key.py --mode rsa -l 1024
+python3 pyssl.py --gen_key rsa -l 1024
 ```
 <h1 align="center">ENCRYPTION DECRYPTION</h1>
 
@@ -155,7 +158,7 @@ python3 pyssl.py -e create-rsa-signature -i rsa_plain.txt -s signature.txt -k pr
 
 __verify signature example__ :
 ```shell
-python3 pyssl.py -e create-rsa-signature -i rsa_plain.txt -s signature.txt -k publicKey.pem
+python3 pyssl.py -e verify-rsa-signature -i rsa_plain.txt -s signature.txt -k publicKey.pem
 ```
 
 <hr>
