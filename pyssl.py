@@ -252,9 +252,11 @@ def main(argv):
 
         with open('publicKey.pem', 'wb') as f:
             f.write(publicKey)
+            print('Success! RSA Public Key for RSA File Created Successfully.')
 
         with open('privateKey.pem', 'wb') as f:
             f.write(privateKey)
+            print('Success! RSA Private Key File Created Successfully.')
     
 
         
