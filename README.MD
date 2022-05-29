@@ -18,8 +18,8 @@ __command__ :
 python3 pyssl.py --gen_key [options] -l [no_of_bits]
 ```
 
->1. `--gen_key` can be `aes` or `rsa`<br>
->2. `-l` is number of bit length. for aes it can 128 or 256 and for rsa it can be 1024 or 2048<br><br>
+>1. `--gen_key` can be `aes` or `rsa`.<br>
+>2. `-l` is number of bit length. for aes `options` are `128` or `256` and for `rsa` options are `1024` or `2048`.<br><br>
 
 
 __Example 1(AES Key)__ :
@@ -34,12 +34,12 @@ python3 pyssl.py --gen_key rsa -l 1024
 ```
 <h1 align="center">ENCRYPTION DECRYPTION</h1>
 
-__ENCRYPTION COMMAND__ : 
+__Encryption Command__ : 
 ```shell
 python3 pyssl.py -e [encryption options] -k [generated key] -v [generated iv] -i [input file] -o [output_file]
 ```
 
-__DECRYPTION COMMAND__ : 
+__Decryption Command__ : 
 ```shell
 python3 pyssl.py -d [encryption options] -k [generated key] -v [generated iv] -i [input file] -o [output_file]
 ```
@@ -60,12 +60,12 @@ __options__:
 <hr>
    
 ## For AES (ECB/CFB 128/256):
-__ENCRYPTION COMMAND__ : 
+__Encryption Command__ : 
 ```shell
 python3 pyssl.py -e [encryption options] -k [generated key] -v [generated iv] -i [input file] -o [output_file]
 ```
 
-__FOR DECRYPTION COMMAND__ : 
+__Decryption Command__ : 
 ```shell
 python3 pyssl.py -d [encryption options] -k [generated key] -v [generated iv] -i [input file] -o [output_file]
 ```
@@ -98,12 +98,12 @@ python3 pyssl.py -d aes-128-ecb -k t7EQ9iArWRM7vq9W -i output.txt -o plain_back.
 <hr>
 
 ##  For RSA:
-__ENCRYPTION COMMAND__ : 
+__Encryption Command__ : 
 ```shell
 python3 pyssl.py -e [encryption options] -k [public key file] -i [input file] -o [output_file]
 ```
 
-__DECRYPTION COMMAND__ :
+__Decryption Command__ :
 ```shell
 python3 pyssl.py -d [encryption options] -k [private key file] -i [input file] -o [output_file]
 ```
@@ -139,12 +139,12 @@ python3 pyssl.py -h SHA256 -i plain.txt
 
 <h1 align="center">VERIFY SIGNATURE</h1>
 
-__CREATE SIGNATURE COMMAND__:
+__Create Signature Command__:
 ```shell
 python3 pyssl.py -e create-rsa-signature -i [input file] -s [signature output file] -k [private key file]
 ```
 
-__VERIFY SIGNATURE COMMAND__:
+__Verify Signature Command__:
 ```shell
 python3 pyssl.py -e verify-rsa-signature -i [input file] -s [signature output file] -k [public key file]
 ```
